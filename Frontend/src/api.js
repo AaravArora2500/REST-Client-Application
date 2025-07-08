@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL, // Change if deployed
+  baseURL: "https://rest-client-application-1.onrender.com",
 });
 
 // Create a log
@@ -13,7 +13,7 @@ export const sendRequestLog = async (data) => {
 // Get all logs (paginated)
 export const getHistory = async (page = 1, limit = 10) => {
   const res = await API.get(`/history?page=${page}&limit=${limit}`);
-  return res.data; // returns { data: [...], total: N }
+  return res.data; 
 };
 
 // Get single log
