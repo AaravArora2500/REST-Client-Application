@@ -2,7 +2,7 @@ import express from 'express';
 import { schema } from '../db/RequestLog.js';
 
 const router = express.Router();
-const RequestLog = schema.meta.class; 
+const RequestLog = schema.meta.class; // Get the class from schema
 
 export default (orm) => {
   const em = orm.em.fork();
