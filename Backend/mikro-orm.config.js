@@ -8,14 +8,18 @@ import { schema } from './db/RequestLog.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ✅ Load .env from Backend folder explicitly
+// Load .env
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-// ✅ Debug check
 console.log('[DEBUG] DATABASE_URL:', process.env.DATABASE_URL);
 
 export default defineConfig({
   entities: [schema],
-  clientUrl: process.env.DATABASE_URL, // ✅ required
+  clientUrl: process.env.DATABASE_URL,
+  driverOptions: {
+    connection: {
+      ssl: { rejectUnauthorized: false }, // ✅ this fixes the SSL issue
+    },
+  },
   debug: true,
 });
