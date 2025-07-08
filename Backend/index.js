@@ -7,23 +7,23 @@ import requestLogRoutes from "./routes/requestLog.routes.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
-// Setup __dirname for ES module
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load environment variables
+
 dotenv.config();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// CORS setup
+
 if (process.env.NODE_ENV !== "production") {
   app.use(cors({
-    origin: "http://localhost:5173", // Vite dev frontend
+    origin: "http://localhost:5173", 
   }));
 } else {
-  app.use(cors()); // Default allow all or configure specific domains
+  app.use(cors());
 }
 
 app.use(express.json());
@@ -52,6 +52,5 @@ const start = async () => {
 };
 
 start().catch(err => {
-  console.error('❌ Error starting server:', err);
+  console.error(' Error starting server:', err);
 });
-    
