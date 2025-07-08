@@ -18,7 +18,7 @@ export default defineConfig({
   clientUrl: process.env.DATABASE_URL,
   driverOptions: {
     connection: {
-      ssl: { rejectUnauthorized: false }, // ✅ this fixes the SSL issue
+      ssl: { rejectUnauthorized: false }, 
     },
   },
   debug: true,
