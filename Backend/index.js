@@ -1,16 +1,17 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { MikroORM } from "@mikro-orm/postgresql"; // use driver-specific ORM
-import mikroConfig from "./db/mikro-orm.config.js";
+import { MikroORM } from "@mikro-orm/postgresql"; 
+import mikroConfig from "./mikro-orm.config.js";
 import requestLogRoutes from "./routes/requestLog.routes.js";
 
-// Load environment variables first
 dotenv.config();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin:"https://rest-client-application.vercel.app"
+}));
 app.use(express.json());
 
 let orm;
