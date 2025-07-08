@@ -20,6 +20,7 @@ const start = async () => {
   orm = await MikroORM.init(mikroConfig);
   await orm.getSchemaGenerator().updateSchema();
 
+    app.get("/ping", (req, res) => res.send("pong"));
   //Use full CRUD /history routes
   app.use('/history', requestLogRoutes(orm));
 
