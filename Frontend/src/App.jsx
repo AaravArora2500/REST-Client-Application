@@ -213,9 +213,9 @@ function RequestHistory() {
     return 'text-red-600';
   };
 
-  const formatTime = (timestamp) => {
-    return new Date(timestamp).toLocaleString();
-  };
+  // const formatTime = (timestamp) => {
+  //   return new Date(timestamp).toLocaleString();
+  // };
 
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
@@ -248,9 +248,9 @@ function RequestHistory() {
                   <span className={`font-medium ${getStatusColor(log.statusCode)}`}>
                     {log.statusCode}
                   </span>
-                  <span className="text-xs text-gray-500">
+                  {/* <span className="text-xs text-gray-500">
                     {formatTime(log.timestamp)}
-                  </span>
+                  </span> */}
                 </div>
               </div>
             ))}
